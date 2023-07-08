@@ -33,15 +33,18 @@ void Fill2DArray(int[,,] array)
 void MixArray(int[,,] array)
 {
     Random rnd = new Random();
-    int l = 0;
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                l = rnd.Next(0, array.GetLength(1));
-                if (array[i, j, k] == array[i, l, k]) continue;
+                int l = rnd.Next(0, array.GetLength(1));
+                int m = rnd.Next(0, array.GetLength(2));
+                int n = rnd.Next(0, array.GetLength(0));
+
+
+                if (array[i, j, k] == array[n, l, m]) continue;
                 else
-                    (array[i, j, k], array[i, l, k]) = (array[i, l, k], array[i, j, k]);
+                    (array[i, j, k], array[n, l, m]) = (array[n, l, m], array[i, j, k]);
             }
 }
 
@@ -66,6 +69,8 @@ int columns2 = InputNum("Введите количество столбцов2: 
 
 int[,,] my2DArray = Create2DArray(rows, columns, columns2);
 Fill2DArray(my2DArray);
+Print2DArray(my2DArray);
+ Console.WriteLine();
 
 
 if (rows * columns * columns2 > maxItems) Console.WriteLine("Невозможно заполнить массив неповторяющимися двузначныи числами! Элементов в массиве больше!");
