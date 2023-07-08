@@ -11,12 +11,12 @@ int InputNum(string message)
     return int.Parse(Console.ReadLine()!);
 }
 
-int[,,] Create2DArray(int rows, int cols, int cols2)
+int[,,] Create3DArray(int rows, int cols, int cols2)
 {
     return new int[rows, cols, cols2];
 }
 
-void Fill2DArray(int[,,] array)
+void Fill3DArray(int[,,] array)
 {
     int m = 10;
     int ind = 1;
@@ -48,7 +48,7 @@ void MixArray(int[,,] array)
             }
 }
 
-void Print2DArray(int[,,] array)
+void Print3DArray(int[,,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
@@ -67,14 +67,14 @@ int columns = InputNum("Введите количество столбцов: ")
 int columns2 = InputNum("Введите количество столбцов2: ");
 
 
-int[,,] my2DArray = Create2DArray(rows, columns, columns2);
-Fill2DArray(my2DArray);
+int[,,] my3DArray = Create3DArray(rows, columns, columns2);
+Fill3DArray(my3DArray);
 
 if (rows * columns * columns2 > maxItems) Console.WriteLine("Невозможно заполнить массив неповторяющимися двузначныи числами! Элементов в массиве больше!");
 else
 {
-    MixArray(my2DArray);
-    Print2DArray(my2DArray);
+    MixArray(my3DArray);
+    Print3DArray(my3DArray);
 }
 
 
