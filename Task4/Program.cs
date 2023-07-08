@@ -48,21 +48,17 @@ void MixArray(int[,,] array)
 void Print2DArray(int[,,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
-    {
         for (int j = 0; j < array.GetLength(1); j++)
         {
             for (int k = 0; k < array.GetLength(2); k++)
-            {
                 Console.Write($"{array[i, j, k]}({i},{j},{k})\t");
 
-            }
             Console.WriteLine();
         }
-    }
 }
 
 
-
+int maxItems = 89;
 int rows = InputNum("Введите количество строк: ");
 int columns = InputNum("Введите количество столбцов: ");
 int columns2 = InputNum("Введите количество столбцов2: ");
@@ -70,10 +66,13 @@ int columns2 = InputNum("Введите количество столбцов2: 
 
 int[,,] my2DArray = Create2DArray(rows, columns, columns2);
 Fill2DArray(my2DArray);
-Print2DArray(my2DArray);
-Console.WriteLine();
 
-MixArray(my2DArray);
-Print2DArray(my2DArray);
+
+if (rows * columns * columns2 > maxItems) Console.WriteLine("Невозможно заполнить массив неповторяющимися двузначныи числами! Элементов в массиве больше!");
+else
+{
+    MixArray(my2DArray);
+    Print2DArray(my2DArray);
+}
 
 
