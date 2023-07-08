@@ -69,9 +69,6 @@ int columns2 = InputNum("Введите количество столбцов2: 
 
 int[,,] my2DArray = Create2DArray(rows, columns, columns2);
 Fill2DArray(my2DArray);
-Print2DArray(my2DArray);
- Console.WriteLine();
-
 
 if (rows * columns * columns2 > maxItems) Console.WriteLine("Невозможно заполнить массив неповторяющимися двузначныи числами! Элементов в массиве больше!");
 else
