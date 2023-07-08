@@ -19,25 +19,29 @@ int[,,] Create2DArray(int rows, int cols, int cols2)
 void Fill2DArray(int[,,] array)
 {
     int m = 10;
-    int n = 3;
+    int ind = 1;
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
             for (int k = 0; k < array.GetLength(2); k++)
             {
                 array[i, j, k] = m;
-                m = m + n;
+                m = m + ind;
             }
+
 }
 
 void MixArray(int[,,] array)
 {
     Random rnd = new Random();
+    int l = 0;
     for (int i = 0; i < array.GetLength(0); i++)
         for (int j = 0; j < array.GetLength(1); j++)
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                (array[i, j, k], array[rnd.Next(0, array.GetLength(0)), rnd.Next(0, array.GetLength(1)), rnd.Next(0, array.GetLength(2))]) =
-                 (array[rnd.Next(0, array.GetLength(0)), rnd.Next(0, array.GetLength(1)), rnd.Next(0, array.GetLength(2))], array[i, j, k]);
+                l = rnd.Next(0, array.GetLength(1));
+                if (array[i, j, k] == array[i, l, k]) continue;
+                else
+                    (array[i, j, k], array[i, l, k]) = (array[i, l, k], array[i, j, k]);
             }
 }
 
