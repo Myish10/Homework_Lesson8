@@ -39,7 +39,6 @@ void Print2DArray(int[,] array)
 int[] SumItemsCols(int[,] array, int rows)
 {
     int[] result = new int[rows];
-    int k = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
         int sum = 0;
@@ -47,8 +46,7 @@ int[] SumItemsCols(int[,] array, int rows)
         {
             sum = sum + array[i, j];
         }
-        result[k] = sum;
-        k++;
+        result[i] = sum;
     }
     return result;
 }
