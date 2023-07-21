@@ -79,7 +79,7 @@ Fill2DArray(my2DArray, minValue, maxValue);
 Print2DArray(my2DArray);
 Console.WriteLine();
 
-int[] mySumArray = SumItemsCols(my2DArray, rows);
+int[] mySumArray = SumItemsRows(my2DArray, rows);
 PrintArray(mySumArray);
 Console.WriteLine();
 
